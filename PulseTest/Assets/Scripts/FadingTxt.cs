@@ -7,22 +7,24 @@ public class FadingTxt : MonoBehaviour
 {
     public Text textToFade;
     private bool faded = false;
-    private float tweenDuration = 0.8f;
+    private float tweenDuration = 2.0f;
     private float tweenUpperbound = 0.8f;
     private float tweenLowerbound = 0.2f;
-    // Start is called before the first frame update
+    
     void Start()
     {
         Debug.Log(textToFade.canvasRenderer.GetAlpha());
 
     }
 
-    // Update is called once per frame
+    
     private void TweenTxt()
     {
+        // if the text is currently not faded, make it fade by decreasing the alpha gradually 
         if (!faded)
         {
             textToFade.CrossFadeAlpha(0, tweenDuration, false);
+            // once it reaches the lower bound alpha value, set toggle faded to true
             if (textToFade.canvasRenderer.GetAlpha() < tweenLowerbound)
             {
                 faded = true;
@@ -30,12 +32,14 @@ public class FadingTxt : MonoBehaviour
         }
         else
         {
+            // start increasing alpha until the upperbound 
             textToFade.CrossFadeAlpha(1, tweenDuration, false);
             if (textToFade.canvasRenderer.GetAlpha() > tweenUpperbound)
             {
                 faded = false;
             }
         }
+        
     }
     void Update()
     {
