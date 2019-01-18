@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class characterSwitcher : MonoBehaviour {
+public class characterSwitcher : MonoBehaviour
+{
 
     //This enables you to see and set the field from inspector but 
     //it is hidden from other scripts and objects. 
@@ -11,22 +12,29 @@ public class characterSwitcher : MonoBehaviour {
     private int charChoice;
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         //Initially disable all but the chosen one
         disableOthers();
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update()
+    {
         //Poll for key press
         switchCharacter();
-	}
+    }
 
+    public int getChar()
+    {
+        return charChoice;
+    }
     //Function to handle character switching when 'E' is pressed
     private void switchCharacter()
     {
         //Looking for 'E' to be pressed
-        if (Input.GetKeyDown(KeyCode.E)){
+        if (Input.GetKeyDown(KeyCode.E))
+        {
             //Cycle through choices on key press
             if (charChoice < 3)
             {
