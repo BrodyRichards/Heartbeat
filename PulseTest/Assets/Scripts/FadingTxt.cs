@@ -8,7 +8,7 @@ public class FadingTxt : MonoBehaviour
     public Text textToFade;
     private bool faded = false;
     private float tweenDuration = 2.0f;
-    private float tweenUpperbound = 0.8f;
+    private float tweenUpperbound = 0.95f;
     private float tweenLowerbound = 0.2f;
     
     void Start()
