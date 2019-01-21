@@ -11,11 +11,22 @@ public class characterSwitcher : MonoBehaviour
     [SerializeField]
     private int charChoice;
 
+    private int npcCount = 10;
+
+    public GameObject npcObj;
+
     // Use this for initialization
     void Start()
     {
         //Initially disable all but the chosen one
         disableOthers();
+
+        for (int i = 0; i < npcCount; i++) //create and instantiate the npcs (we can make it more complicated later)
+        {
+            Vector3 pos = new Vector3(i, i, -i);
+            Quaternion rot = Quaternion.FromToRotation(Vector3.forward, pos);
+            Instantiate(npcObj, pos, rot);
+        }
     }
 
     // Update is called once per frame
