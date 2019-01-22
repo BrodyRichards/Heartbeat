@@ -14,6 +14,8 @@ public class characterSwitcher : MonoBehaviour
     private int npcCount = 10;
 
     public GameObject npcObj;
+    public GameObject area;   //quad
+    private int areaX, areaY; //get the size of the quad
 
     // Use this for initialization
     void Start()
@@ -21,10 +23,15 @@ public class characterSwitcher : MonoBehaviour
         //Initially disable all but the chosen one
         disableOthers();
 
+        areaX  = ((int)area.transform.localScale.x) / 2;
+        areaY = ((int)area.transform.localScale.y) / 2;
+
         for (int i = 0; i < npcCount; i++) //create and instantiate the npcs (we can make it more complicated later)
         {
-            Vector3 pos = new Vector3(i, i, -i);
-            Quaternion rot = Quaternion.FromToRotation(Vector3.forward, pos);
+            int ranX = Random.Range(-areaX, areaX);
+            int ranY = Random.Range(-areaY, areaY);
+            Vector3 pos = new Vector3(ranX, ranY, -1);
+            Quaternion rot = new Quaternion(0, 0, 0, 0);
             Instantiate(npcObj, pos, rot);
         }
     }
