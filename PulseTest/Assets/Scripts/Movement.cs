@@ -6,11 +6,14 @@ public class Movement : MonoBehaviour {
 
     [SerializeField]
     private float speed = 20f;
-
     private Vector2 direction;
 
-	// Update is called once per frame
-	void Update () {
+    protected bool walking = false;
+
+
+
+    // Update is called once per frame
+    void Update () {
         getInput();
         Move();
 	}
@@ -20,9 +23,10 @@ public class Movement : MonoBehaviour {
         transform.Translate(direction * speed * Time.deltaTime);
     }
 
-    private void getInput()
+    protected void getInput()
     {
         direction = Vector2.zero;
+        walking = false;
 
         if (Input.GetKey(KeyCode.W)){
             direction = Vector2.up;
@@ -31,6 +35,7 @@ public class Movement : MonoBehaviour {
         if (Input.GetKey(KeyCode.A))
         {
             direction = Vector2.left;
+            walking = true;
         }
 
         if (Input.GetKey(KeyCode.S)){
@@ -40,6 +45,7 @@ public class Movement : MonoBehaviour {
         if (Input.GetKey(KeyCode.D))
         {
             direction = Vector2.right;
+            walking = true;
         }
     }
 }
