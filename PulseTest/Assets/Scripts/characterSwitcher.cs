@@ -50,6 +50,7 @@ public class characterSwitcher : MonoBehaviour
             Enable(choice);
             disableOthers();
         }
+
     }
 
     //This function loops through all the other ones not chosen 
@@ -85,4 +86,6 @@ public class characterSwitcher : MonoBehaviour
     {
         B.GetComponent<Movement>().enabled = false;
     }
+
+    
 }
