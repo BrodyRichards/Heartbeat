@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
+//using UnityEngine.AI; may need this in the future??
 
 public class NPCs : MonoBehaviour
 {
@@ -19,8 +19,6 @@ public class NPCs : MonoBehaviour
         int ranX = Random.Range(-areaX, areaX);
         int ranY = Random.Range(-areaY, areaY);
         target = new Vector3(ranX, ranY, -1);
-        //create a random point on the quad and have the NPC move towards that location
-        //once it reaches that location a new random point is made and the NPC moves towards that
     }
 
     // Update is called once per frame
