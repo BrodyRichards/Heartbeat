@@ -21,7 +21,7 @@ public class characterSwitcher : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Poll for mouse click
+        //Poll for key press
         switchCharacter();
     }
 
@@ -29,28 +29,21 @@ public class characterSwitcher : MonoBehaviour
     {
         return charChoice;
     }
-
     //Function to handle character switching when 'E' is pressed
     private void switchCharacter()
     {
-        //Looking for 'Left Mouse Button' to be pressed
-        if (Input.GetMouseButtonDown(0))
+        //Looking for 'E' to be pressed
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            //Vector for Raycast, takes mouse position
-            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            //Decompose to 2D vector
-            Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
-
-            //Raycast hit register for mouse position
-            RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);
-
-            //If a hit is registered, find which object was hit
-            if (hit.collider != null)
+            //Cycle through choices on key press
+            if (charChoice < 3)
             {
-                //Take the name of the object and convert to int for charChoice
-                string name = hit.collider.gameObject.name;
-                int.TryParse(name, out charChoice);
-            }       
+                charChoice++;
+            }
+            else
+            {
+                charChoice = 0;
+            }
 
             //Activate the object chosen and disable all the others
             GameObject choice = findGO(charChoice);
@@ -76,7 +69,7 @@ public class characterSwitcher : MonoBehaviour
     //Helper function for finding game objects
     private GameObject findGO(int i)
     {
-        string choice = i.ToString();
+        string choice = "bush" + i.ToString();
         GameObject someB = GameObject.Find(choice);
         return someB;
     }
