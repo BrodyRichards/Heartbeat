@@ -103,11 +103,35 @@ public class characterSwitcher : MonoBehaviour
     private void Enable(GameObject B)
     {
         B.GetComponent<Movement>().enabled = true;
+
+        switch (charChoice)
+        {
+            case 2:
+                B.GetComponent<BallThrow>().enabled = true;
+                break;
+            default:
+                break;
+        }
     }
 
     //Disables a game object's script
     private void Disable(GameObject B)
     {
         B.GetComponent<Movement>().enabled = false;
+
+        switch (charChoice)
+        {
+            case 0:
+                findGO(2).GetComponent<BallThrow>().enabled = false;
+                break;
+            case 1:
+                findGO(2).GetComponent<BallThrow>().enabled = false;
+                break;
+            case 3:
+                findGO(2).GetComponent<BallThrow>().enabled = false;
+                break;
+            default:
+                break;
+        }
     }
 }
