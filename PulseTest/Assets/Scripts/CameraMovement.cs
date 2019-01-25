@@ -13,9 +13,12 @@ public class CameraMovement : MonoBehaviour
     private int choice;
 
     private Vector3 offset;     //offset for camera 
-
+    private Camera cam;
     void Start()
     {
+
+        cam = GetComponent<Camera>();
+        cam.clearFlags = CameraClearFlags.SolidColor;
         offset = new Vector3(0, 0, -10);
         choice = obj.GetComponent<characterSwitcher>().getChar();       //sync choice from script with this one
         bush = bushes.GetChild(choice);                                 

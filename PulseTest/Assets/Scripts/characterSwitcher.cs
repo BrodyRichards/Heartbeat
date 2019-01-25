@@ -50,24 +50,26 @@ public class characterSwitcher : MonoBehaviour
     //Function to handle character switching when 'E' is pressed
     private void switchCharacter()
     {
-        //Looking for 'E' to be pressed
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            //Cycle through choices on key press
-            if (charChoice < 3)
-            {
-                charChoice++;
-            }
-            else
-            {
-                charChoice = 0;
-            }
+        ////Looking for 'E' to be pressed
+        //if (Input.GetKeyDown(KeyCode.E))
+        //{
+        //    //Cycle through choices on key press
+        //    if (charChoice < 3)
+        //    {
+        //        charChoice++;
+        //    }
+        //    else
+        //    {
+        //        charChoice = 0;
+        //    }
+        charChoice = CheckClick.currentChoice;
 
-            //Activate the object chosen and disable all the others
-            GameObject choice = findGO(charChoice);
-            Enable(choice);
-            disableOthers();
-        }
+        //Activate the object chosen and disable all the others
+        GameObject choice = findGO(charChoice);
+        Enable(choice);
+        disableOthers();
+        
+
     }
 
     //This function loops through all the other ones not chosen 
@@ -103,4 +105,6 @@ public class characterSwitcher : MonoBehaviour
     {
         B.GetComponent<Movement>().enabled = false;
     }
+
+    
 }
