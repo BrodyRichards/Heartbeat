@@ -24,7 +24,7 @@ public class NPCs : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime); 
         if (transform.position == target)
         {
             int ranX = Random.Range(-areaX, areaX);
@@ -32,4 +32,23 @@ public class NPCs : MonoBehaviour
             target = new Vector3(ranX, ranY, -1);
         }
     }
+
+    /*
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "Person")
+        {
+            int ranX = Random.Range(-areaX, areaX);
+            int ranY = Random.Range(-areaY, areaY);
+            target = new Vector3(ranX, ranY, -1);
+        }
+
+    }
+
+
+    private void FixedUpdate()
+    {     
+        transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
+    }
+    */
 }

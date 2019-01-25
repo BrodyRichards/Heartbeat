@@ -11,9 +11,10 @@ public class characterSwitcher : MonoBehaviour
     [SerializeField]
     private int charChoice;
 
-    private int npcCount = 10;
+    private int npcCount = 20;
 
     public GameObject npcObj;
+    public GameObject loner;
     public GameObject area;   //quad
     private int areaX, areaY; //get the size of the quad
 
@@ -32,7 +33,15 @@ public class characterSwitcher : MonoBehaviour
             int ranY = Random.Range(-areaY, areaY);
             Vector3 pos = new Vector3(ranX, ranY, -1);
             Quaternion rot = new Quaternion(0, 0, 0, 0);
-            Instantiate(npcObj, pos, rot);
+            if (i % 2 == 0)
+            {
+                Instantiate(npcObj, pos, rot);
+            }
+            else
+            {
+                Instantiate(loner, pos, rot);
+            }
+            
         }
     }
 
