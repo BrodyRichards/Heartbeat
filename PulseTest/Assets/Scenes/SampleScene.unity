@@ -124,9 +124,8 @@ GameObject:
   - component: {fileID: 118138680}
   - component: {fileID: 118138682}
   - component: {fileID: 118138684}
-  - component: {fileID: 118138683}
   m_Layer: 0
-  m_Name: bush2
+  m_Name: 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -207,18 +206,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
---- !u!114 &118138683
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 118138679}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66c4705ae7baa2647bb2eef849d9faff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &118138684
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -528,9 +515,8 @@ GameObject:
   - component: {fileID: 874476368}
   - component: {fileID: 874476370}
   - component: {fileID: 874476372}
-  - component: {fileID: 874476371}
   m_Layer: 0
-  m_Name: bush3
+  m_Name: 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -611,18 +597,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
---- !u!114 &874476371
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 874476367}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66c4705ae7baa2647bb2eef849d9faff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &874476372
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -828,10 +802,9 @@ GameObject:
   - component: {fileID: 1996937837}
   - component: {fileID: 1996937836}
   - component: {fileID: 1996937838}
-  - component: {fileID: 1996937840}
   - component: {fileID: 1996937839}
   m_Layer: 0
-  m_Name: bush1
+  m_Name: 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -912,19 +885,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
---- !u!114 &1996937839
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1996937835}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66c4705ae7baa2647bb2eef849d9faff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!61 &1996937840
+--- !u!61 &1996937839
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -960,7 +921,7 @@ PrefabInstance:
     - target: {fileID: 55035850524694731, guid: a3b677e980246c840bab6ae5ac9b4984,
         type: 3}
       propertyPath: m_Name
-      value: bush0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 55035850524694729, guid: a3b677e980246c840bab6ae5ac9b4984,
         type: 3}
@@ -1017,7 +978,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 55035850524694727, guid: a3b677e980246c840bab6ae5ac9b4984, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a3b677e980246c840bab6ae5ac9b4984, type: 3}
 --- !u!1001 &8432465858589808403
 PrefabInstance:

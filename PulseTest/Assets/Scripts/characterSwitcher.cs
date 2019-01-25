@@ -11,7 +11,7 @@ public class characterSwitcher : MonoBehaviour
     [SerializeField]
     private int charChoice;
 
-    private int npcCount = 10;
+    private int npcCount = 20;
 
     public GameObject npcObj;
     public GameObject area;   //quad
@@ -23,7 +23,7 @@ public class characterSwitcher : MonoBehaviour
         //Initially disable all but the chosen one
         disableOthers();
 
-        areaX  = ((int)area.transform.localScale.x) / 2;
+        areaX = ((int)area.transform.localScale.x) / 2;
         areaY = ((int)area.transform.localScale.y) / 2;
 
         for (int i = 0; i < npcCount; i++) //create and instantiate the npcs (we can make it more complicated later)
@@ -39,7 +39,7 @@ public class characterSwitcher : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Poll for key press
+        //Poll for mouse click
         switchCharacter();
     }
 
@@ -47,29 +47,34 @@ public class characterSwitcher : MonoBehaviour
     {
         return charChoice;
     }
+
     //Function to handle character switching when 'E' is pressed
     private void switchCharacter()
     {
-        ////Looking for 'E' to be pressed
-        //if (Input.GetKeyDown(KeyCode.E))
-        //{
-        //    //Cycle through choices on key press
-        //    if (charChoice < 3)
-        //    {
-        //        charChoice++;
-        //    }
-        //    else
-        //    {
-        //        charChoice = 0;
-        //    }
-        charChoice = CheckClick.currentChoice;
+        //Looking for 'Left Mouse Button' to be pressed
+        if (Input.GetMouseButtonDown(0))
+        {
+            //Vector for Raycast, takes mouse position
+            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            //Decompose to 2D vector
+            Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
 
-        //Activate the object chosen and disable all the others
-        GameObject choice = findGO(charChoice);
-        Enable(choice);
-        disableOthers();
-        
+            //Raycast hit register for mouse position
+            RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);
 
+            //If a hit is registered, find which object was hit
+            if (hit.collider != null)
+            {
+                //Take the name of the object and convert to int for charChoice
+                string name = hit.collider.gameObject.name;
+                int.TryParse(name, out charChoice);
+            }
+
+            //Activate the object chosen and disable all the others
+            GameObject choice = findGO(charChoice);
+            Enable(choice);
+            disableOthers();
+        }
     }
 
     //This function loops through all the other ones not chosen 
@@ -89,7 +94,7 @@ public class characterSwitcher : MonoBehaviour
     //Helper function for finding game objects
     private GameObject findGO(int i)
     {
-        string choice = "bush" + i.ToString();
+        string choice = i.ToString();
         GameObject someB = GameObject.Find(choice);
         return someB;
     }
@@ -105,6 +110,4 @@ public class characterSwitcher : MonoBehaviour
     {
         B.GetComponent<Movement>().enabled = false;
     }
-
-    
 }
