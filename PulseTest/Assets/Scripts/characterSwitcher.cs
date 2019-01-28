@@ -72,10 +72,11 @@ public class characterSwitcher : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);
 
             //If a hit is registered, find which object was hit
-            if (hit.collider != null)
+            if (hit.collider != null && hit.collider.gameObject.tag == "Avatars")
             {
                 //Take the name of the object and convert to int for charChoice
                 string name = hit.collider.gameObject.name;
+                Debug.Log(name);
                 int.TryParse(name, out charChoice);
             }
 
