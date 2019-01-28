@@ -24,7 +24,7 @@ public class NPCs : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime); 
         if (transform.position == target)
         {
             int ranX = Random.Range(-areaX, areaX);
